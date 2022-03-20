@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{49F291BF-648A-4959-B586-5A2F3E8B7873}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitFormApp", "WinFormsApp1\UnitFormApp.csproj", "{49F291BF-648A-4959-B586-5A2F3E8B7873}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
