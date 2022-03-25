@@ -29,44 +29,32 @@
         private void InitializeComponent()
         {
             this.GRPBX1 = new System.Windows.Forms.GroupBox();
-            this.CKBX4 = new System.Windows.Forms.CheckBox();
             this.CKBX3 = new System.Windows.Forms.CheckBox();
             this.CKBX2 = new System.Windows.Forms.CheckBox();
             this.CKBX1 = new System.Windows.Forms.CheckBox();
             this.BTN1 = new System.Windows.Forms.Button();
-            this.TXTBX2 = new System.Windows.Forms.TextBox();
             this.GRPBX2 = new System.Windows.Forms.GroupBox();
             this.CKBX7 = new System.Windows.Forms.CheckBox();
             this.CKBX6 = new System.Windows.Forms.CheckBox();
             this.CKBX5 = new System.Windows.Forms.CheckBox();
             this.TXTBX1 = new System.Windows.Forms.TextBox();
             this.LBL1 = new System.Windows.Forms.Label();
+            this.RTXTBX1 = new System.Windows.Forms.RichTextBox();
             this.GRPBX1.SuspendLayout();
             this.GRPBX2.SuspendLayout();
             this.SuspendLayout();
             // 
             // GRPBX1
             // 
-            this.GRPBX1.Controls.Add(this.CKBX4);
             this.GRPBX1.Controls.Add(this.CKBX3);
             this.GRPBX1.Controls.Add(this.CKBX2);
             this.GRPBX1.Controls.Add(this.CKBX1);
-            this.GRPBX1.Location = new System.Drawing.Point(19, 22);
+            this.GRPBX1.Location = new System.Drawing.Point(19, 45);
             this.GRPBX1.Name = "GRPBX1";
-            this.GRPBX1.Size = new System.Drawing.Size(302, 190);
+            this.GRPBX1.Size = new System.Drawing.Size(302, 167);
             this.GRPBX1.TabIndex = 0;
             this.GRPBX1.TabStop = false;
             this.GRPBX1.Text = "Settings";
-            // 
-            // CKBX4
-            // 
-            this.CKBX4.AutoSize = true;
-            this.CKBX4.Location = new System.Drawing.Point(21, 136);
-            this.CKBX4.Name = "CKBX4";
-            this.CKBX4.Size = new System.Drawing.Size(146, 24);
-            this.CKBX4.TabIndex = 3;
-            this.CKBX4.Text = "Hardware Details";
-            this.CKBX4.UseVisualStyleBackColor = true;
             // 
             // CKBX3
             // 
@@ -97,24 +85,16 @@
             this.CKBX1.TabIndex = 0;
             this.CKBX1.Text = "Operating System";
             this.CKBX1.UseVisualStyleBackColor = true;
-            this.CKBX1.Click += new System.EventHandler(this.CKBX1_Click);
             // 
             // BTN1
             // 
-            this.BTN1.Location = new System.Drawing.Point(474, 370);
+            this.BTN1.Location = new System.Drawing.Point(480, 370);
             this.BTN1.Name = "BTN1";
             this.BTN1.Size = new System.Drawing.Size(189, 45);
             this.BTN1.TabIndex = 1;
             this.BTN1.Text = "RUN";
             this.BTN1.UseVisualStyleBackColor = true;
-            // 
-            // TXTBX2
-            // 
-            this.TXTBX2.Location = new System.Drawing.Point(359, 45);
-            this.TXTBX2.Multiline = true;
-            this.TXTBX2.Name = "TXTBX2";
-            this.TXTBX2.Size = new System.Drawing.Size(408, 302);
-            this.TXTBX2.TabIndex = 2;
+            this.BTN1.Click += new System.EventHandler(this.BTN1_Click);
             // 
             // GRPBX2
             // 
@@ -176,13 +156,21 @@
             this.LBL1.TabIndex = 0;
             this.LBL1.Text = "Path: ";
             // 
+            // RTXTBX1
+            // 
+            this.RTXTBX1.Location = new System.Drawing.Point(340, 45);
+            this.RTXTBX1.Name = "RTXTBX1";
+            this.RTXTBX1.Size = new System.Drawing.Size(468, 271);
+            this.RTXTBX1.TabIndex = 4;
+            this.RTXTBX1.Text = "";
+            // 
             // FORM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(820, 450);
+            this.Controls.Add(this.RTXTBX1);
             this.Controls.Add(this.GRPBX2);
-            this.Controls.Add(this.TXTBX2);
             this.Controls.Add(this.BTN1);
             this.Controls.Add(this.GRPBX1);
             this.Name = "FORM";
@@ -193,24 +181,22 @@
             this.GRPBX2.ResumeLayout(false);
             this.GRPBX2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.GroupBox GRPBX1;
-        private System.Windows.Forms.CheckBox CKBX4;
         private System.Windows.Forms.CheckBox CKBX3;
         private System.Windows.Forms.CheckBox CKBX2;
         private System.Windows.Forms.CheckBox CKBX1;
         private System.Windows.Forms.Button BTN1;
-        private System.Windows.Forms.TextBox TXTBX2;
         private System.Windows.Forms.GroupBox GRPBX2;
         private System.Windows.Forms.Label LBL1;
         private System.Windows.Forms.CheckBox CKBX7;
         private System.Windows.Forms.CheckBox CKBX6;
         private System.Windows.Forms.CheckBox CKBX5;
         private System.Windows.Forms.TextBox TXTBX1;
+        private System.Windows.Forms.RichTextBox RTXTBX1;
     }
 }
