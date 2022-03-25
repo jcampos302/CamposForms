@@ -49,16 +49,7 @@ namespace WinFormsApp1
             }
 
             
-            RTXTBX1.Text = String.Format("" +
-                "*****************************************************************************\n" +
-                "*               \t                    Unit Info                  \t\t         *\n" +
-                "*****************************************************************************\n\n" +
-                "OS Infomation:\n{0}\n" +
-                "Network Information:\n" +
-                "Hostname - {1}\n" +
-                "Ip Addresses: {2}\n" +
-                "User Information:\n{3}" 
-               , osInfo, hostName, unitController.printList(ipAddresses), unitController.printList(users));
+            RTXTBX1.Text = unitController.addUnit(osInfo,hostName,ipAddresses,users);
 
         }
     }

@@ -55,7 +55,62 @@ namespace WinFormsApp1
             Users = users;
         
         }
-        
+        public string printList(List<string> list)
+        {
+            string result = "";
+            foreach (string item in list)
+            {
+                result = result + item + "\n";
+            }
+            return result;
+        }
+
+        // Probably too complicated ToString()
+        public override string ToString()
+        {
+            if (OsName != "")
+            {
+                if (Hostname != "")
+                {
+                    if (Users != null)
+                    {
+                        return String.Format("{0}\n{1}\n{2}\n{3}",OsName,Hostname,printList(IpAddresses), printList(Users));
+                    }
+                    else
+                    {
+                        return String.Format("{0}\n{1}\n{2}",OsName,Hostname,printList(IpAddresses));
+                    }
+                }
+                if (Users != null)
+                {
+                    return String.Format("{0}\n{1}", OsName, printList(Users));
+                }
+                else
+                {
+                    return String.Format("{0}", osName);
+                }
+            }
+            if (Hostname != "")
+            {
+                if (Users != null)
+                {
+                    return String.Format("{0}\n{1}\n{2}", Hostname, printList(IpAddresses), printList(Users));
+                }
+                else
+                {
+                    return String.Format("{0}\n{1}", Hostname, printList(IpAddresses));
+                }
+            }
+            if (Users != null)
+            {
+                return String.Format("{0}", printList(Users));
+            }
+            else
+            {
+                return String.Format("here");
+            }
+        }
+
 
 
     }

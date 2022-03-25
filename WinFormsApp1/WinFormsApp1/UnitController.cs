@@ -61,21 +61,15 @@ namespace WinFormsApp1
             return ipaddresses;
         }
 
-        public string printList(List<string> list)
-        {
-            string result = "";
-            foreach (string item in list)
-            {
-                result = result + item + "\n";
-            }
-            return result;
-        }
-        public void addUnit(string osInfo, string hostName, List<string> ipaddresses, List<string> users)
+       
+        public string addUnit(string osInfo, string hostName, List<string> ipaddresses, List<string> users)
         {
             Unit unit = new Unit(osInfo,hostName,ipaddresses,users);
+            return unit.ToString();
         }
-        
-        
+
+       
+
 
     }
 }
