@@ -34,9 +34,9 @@
             this.CKBX1 = new System.Windows.Forms.CheckBox();
             this.BTN1 = new System.Windows.Forms.Button();
             this.GRPBX2 = new System.Windows.Forms.GroupBox();
-            this.CKBX7 = new System.Windows.Forms.CheckBox();
             this.CKBX6 = new System.Windows.Forms.CheckBox();
             this.CKBX5 = new System.Windows.Forms.CheckBox();
+            this.CKBX4 = new System.Windows.Forms.CheckBox();
             this.TXTBX1 = new System.Windows.Forms.TextBox();
             this.LBL1 = new System.Windows.Forms.Label();
             this.RTXTBX1 = new System.Windows.Forms.RichTextBox();
@@ -98,9 +98,9 @@
             // 
             // GRPBX2
             // 
-            this.GRPBX2.Controls.Add(this.CKBX7);
             this.GRPBX2.Controls.Add(this.CKBX6);
             this.GRPBX2.Controls.Add(this.CKBX5);
+            this.GRPBX2.Controls.Add(this.CKBX4);
             this.GRPBX2.Controls.Add(this.TXTBX1);
             this.GRPBX2.Controls.Add(this.LBL1);
             this.GRPBX2.Location = new System.Drawing.Point(22, 243);
@@ -110,35 +110,35 @@
             this.GRPBX2.TabStop = false;
             this.GRPBX2.Text = "Export";
             // 
-            // CKBX7
-            // 
-            this.CKBX7.AutoSize = true;
-            this.CKBX7.Location = new System.Drawing.Point(24, 127);
-            this.CKBX7.Name = "CKBX7";
-            this.CKBX7.Size = new System.Drawing.Size(66, 24);
-            this.CKBX7.TabIndex = 4;
-            this.CKBX7.Text = "JSON";
-            this.CKBX7.UseVisualStyleBackColor = true;
-            // 
             // CKBX6
             // 
             this.CKBX6.AutoSize = true;
-            this.CKBX6.Location = new System.Drawing.Point(24, 97);
+            this.CKBX6.Location = new System.Drawing.Point(24, 127);
             this.CKBX6.Name = "CKBX6";
-            this.CKBX6.Size = new System.Drawing.Size(60, 24);
-            this.CKBX6.TabIndex = 3;
-            this.CKBX6.Text = "XML";
+            this.CKBX6.Size = new System.Drawing.Size(66, 24);
+            this.CKBX6.TabIndex = 4;
+            this.CKBX6.Text = "JSON";
             this.CKBX6.UseVisualStyleBackColor = true;
             // 
             // CKBX5
             // 
             this.CKBX5.AutoSize = true;
-            this.CKBX5.Location = new System.Drawing.Point(24, 67);
+            this.CKBX5.Location = new System.Drawing.Point(24, 97);
             this.CKBX5.Name = "CKBX5";
-            this.CKBX5.Size = new System.Drawing.Size(72, 24);
-            this.CKBX5.TabIndex = 2;
-            this.CKBX5.Text = "Binary";
+            this.CKBX5.Size = new System.Drawing.Size(60, 24);
+            this.CKBX5.TabIndex = 3;
+            this.CKBX5.Text = "XML";
             this.CKBX5.UseVisualStyleBackColor = true;
+            // 
+            // CKBX4
+            // 
+            this.CKBX4.AutoSize = true;
+            this.CKBX4.Location = new System.Drawing.Point(24, 67);
+            this.CKBX4.Name = "CKBX4";
+            this.CKBX4.Size = new System.Drawing.Size(72, 24);
+            this.CKBX4.TabIndex = 2;
+            this.CKBX4.Text = "Binary";
+            this.CKBX4.UseVisualStyleBackColor = true;
             // 
             // TXTBX1
             // 
@@ -193,9 +193,9 @@
         private System.Windows.Forms.Button BTN1;
         private System.Windows.Forms.GroupBox GRPBX2;
         private System.Windows.Forms.Label LBL1;
-        private System.Windows.Forms.CheckBox CKBX7;
         private System.Windows.Forms.CheckBox CKBX6;
         private System.Windows.Forms.CheckBox CKBX5;
+        private System.Windows.Forms.CheckBox CKBX4;
         private System.Windows.Forms.TextBox TXTBX1;
         private System.Windows.Forms.RichTextBox RTXTBX1;
     }

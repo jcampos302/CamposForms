@@ -56,7 +56,15 @@ namespace WinFormsApp1
             List<string> ipaddresses = new List<string>();
             for (int i = 0; i < Dns.GetHostByName(hostName).AddressList.Length; i++)
             {
-                ipaddresses.Add(Dns.GetHostByName(hostName).AddressList[i].ToString());
+                if (Dns.GetHostByName(hostName).AddressList[i].ToString().Length <= 16)
+                {
+                    ipaddresses.Add("Ipv4: " + Dns.GetHostByName(hostName).AddressList[i].ToString());
+                }
+                else
+                {
+                    ipaddresses.Add("Ipv6: " + Dns.GetHostByName(hostName).AddressList[i].ToString());
+                }
+                
             }
             return ipaddresses;
         }

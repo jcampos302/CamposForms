@@ -31,8 +31,10 @@ namespace WinFormsApp1
             UnitController unitController = this.unitController;
             string osInfo = "";
             string hostName = "";
+            string path = "C:\\temp\\unit.";
             List<string> ipAddresses = new List<string>();
             List<string> users = new List<string>();
+            DataSerializer ds = new DataSerializer();
 
             if (CKBX1.Checked)
             {
@@ -47,10 +49,25 @@ namespace WinFormsApp1
             {
                 users = unitController.getUsernames();
             }
+            
+            RTXTBX1.Text = unitController.addUnit(osInfo, hostName, ipAddresses, users);
+
+            if (CKBX4.Checked)
+            {
+                ds.BinarySerialize(unitController.addUnit(osInfo, hostName, ipAddresses, users), path + "bin");
+            }
+            if (CKBX4.Checked)
+            {
+                ds.XmlSerialize(typeof(string), RTXTBX1.Text, path + "xml");
+            }
+            if (CKBX5.Checked)
+            {
+                ds.JsonSerialize(unitController.addUnit(osInfo, hostName, ipAddresses, users), path + "json");
+            }
 
             
-            RTXTBX1.Text = unitController.addUnit(osInfo,hostName,ipAddresses,users);
-
+            
+            
         }
     }
 }
