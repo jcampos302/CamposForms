@@ -71,7 +71,7 @@ namespace WinFormsApp1
             var osInfo = Environment.OSVersion;
             string os = String.Format("Platform: {0:G},\n" +
                 "Version: {1}, \nMajor: {2}, Mirnor: {3},\n" +
-                "Service Pack: {4}", osInfo.Platform, osInfo.VersionString, osInfo.Version.Major,
+                "Service Pack: {4}\n", osInfo.Platform, osInfo.VersionString, osInfo.Version.Major,
                 osInfo.Version.Minor, osInfo.ServicePack);
 
             return os;
