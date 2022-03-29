@@ -17,7 +17,6 @@ namespace WinFormsApp1
         private List<string> ipAddresses;
         private List<string> users;
         
-
         // Public Values
         public string OsName
         {
@@ -40,7 +39,6 @@ namespace WinFormsApp1
            set { users = value; }
         }
         
-        
         // Constructors
         public Unit()
         {
@@ -58,6 +56,9 @@ namespace WinFormsApp1
             Users = users;
         
         }
+        
+        // Prints items in list. 
+        // It's probably not as ideal as converting everything as a string and parsing but works.
         public string printList(List<string> list)
         {
             string result = "";
@@ -113,8 +114,6 @@ namespace WinFormsApp1
                 return String.Format("here");
             }
         }
-
-
 
     }
 }

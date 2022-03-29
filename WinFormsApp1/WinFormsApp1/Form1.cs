@@ -14,8 +14,11 @@ namespace WinFormsApp1
 {
     public partial class FORM : Form
     {
+        // Private Objs
         private UnitController unitController;
         private MenuStrip mainMenu;
+
+        // Form Window
         public FORM(UnitController unitController)
         {
             InitializeComponent();
@@ -25,10 +28,10 @@ namespace WinFormsApp1
             this.Controls.Add(mainMenu);
             ToolStripMenuItem mnuExport = new ToolStripMenuItem("Export");
             this.MainMenuStrip.Items.Add(mnuExport);
-            ToolStripMenuItem miBinnary = new ToolStripMenuItem("Binnary");
+            ToolStripMenuItem miBinary = new ToolStripMenuItem("Binnary");
             ToolStripMenuItem miXML = new ToolStripMenuItem("XML");
             ToolStripMenuItem miJSON = new ToolStripMenuItem("JSON");
-            mnuExport.DropDownItems.Add(miBinnary);
+            mnuExport.DropDownItems.Add(miBinary);
             mnuExport.DropDownItems.Add(miXML);
             mnuExport.DropDownItems.Add(miJSON);
 
@@ -37,93 +40,133 @@ namespace WinFormsApp1
             ToolStripMenuItem miAbout = new ToolStripMenuItem("About");
             mnuHelp.DropDownItems.Add(miAbout);
             
-            miBinnary.Click += MiBinnary_Click;
+            miBinary.Click += MiBinary_Click;
             miXML.Click += MiXML_Click;
             miJSON.Click += MiJSON_Click;
             miAbout.Click += MiAbout_Click;
         }
+        
+        // About Window
         private void MiAbout_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This is a .Net Programming Assignment that\n allows a user to save a unit's info.");
         }
 
-        private void MiBinnary_Click(object sender, EventArgs e)
+        // Exports to Binary 
+        private void MiBinary_Click(object sender, EventArgs e)
         {
-            UnitController unitController = this.unitController;
-            DataSerializer ds = new DataSerializer();
-            SaveFileDialog dlgSave = new SaveFileDialog();
-            dlgSave.InitialDirectory = "c:\\temp";
-            dlgSave.Filter = "bin files (*.bin)|*.bin|All files (*.*)|*.*";
-            dlgSave.FilterIndex = 1;
-            dlgSave.RestoreDirectory = true;
-            String fname;
-            if (dlgSave.ShowDialog() == DialogResult.OK)
+            if (!CKBX1.Checked && !CKBX2.Checked && !CKBX3.Checked)
             {
-                fname = dlgSave.FileName;
+                MessageBox.Show("Please Enter an Option in Settings");
+            }
+            else
+            {
+                UnitController unitController = this.unitController;
+                DataSerializer ds = new DataSerializer();
+                SaveFileDialog dlgSave = new SaveFileDialog();
 
-                if (unitController.GetUnitsAsString() != null)
+
+                dlgSave.InitialDirectory = "c:\\temp";
+                dlgSave.Filter = "bin files (*.bin)|*.bin|All files (*.*)|*.*";
+                dlgSave.FilterIndex = 1;
+                dlgSave.RestoreDirectory = true;
+                String fname;
+
+                if (dlgSave.ShowDialog() == DialogResult.OK)
                 {
-                    ds.BinarySerialize(unitController.getUnits(), fname);
-                    MessageBox.Show("Successfully exported file: {}", fname);
-                }
-                else
-                {
-                    MessageBox.Show("Failed to export file...");
+                    fname = dlgSave.FileName;
+
+                    // Checks if object is created
+                    if (unitController.GetUnit() != null)
+                    {
+                        ds.BinarySerialize(unitController.GetUnit(), fname);
+                        MessageBox.Show("Successfully exported file: " + fname);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to export file...");
+                    }
                 }
             }
+
+            
         }
 
         private void MiXML_Click(object sender, EventArgs e)
         {
-            UnitController unitController = this.unitController;
-            DataSerializer ds = new DataSerializer();
-            SaveFileDialog dlgSave = new SaveFileDialog();
-            dlgSave.InitialDirectory = "c:\\temp";
-            dlgSave.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
-            dlgSave.FilterIndex = 1;
-            dlgSave.RestoreDirectory = true;
-            String fname;
-            if (dlgSave.ShowDialog() == DialogResult.OK)
+            if (!CKBX1.Checked && !CKBX2.Checked && !CKBX3.Checked)
             {
-                fname = dlgSave.FileName;
+                MessageBox.Show("Please Enter an Option in Settings");
+            }
+            else
+            {
+                UnitController unitController = this.unitController;
+                DataSerializer ds = new DataSerializer();
+                SaveFileDialog dlgSave = new SaveFileDialog();
 
-                if (unitController.GetUnitsAsString() != null)
+                dlgSave.InitialDirectory = "c:\\temp";
+                dlgSave.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+                dlgSave.FilterIndex = 1;
+                dlgSave.RestoreDirectory = true;
+                String fname;
+
+                if (dlgSave.ShowDialog() == DialogResult.OK)
                 {
-                    ds.XmlSerialize(typeof(Unit),unitController.getUnits(), fname);
-                    MessageBox.Show("Successfully exported file: {}", fname);
-                }
-                else
-                {
-                    MessageBox.Show("Failed to export file...");
+                    fname = dlgSave.FileName;
+
+                    // Checks if Obj Created
+                    if (unitController.GetUnit() != null)
+                    {
+                        ds.XmlSerialize(typeof(Unit), unitController.GetUnit(), fname);
+                        MessageBox.Show("Successfully exported file: " + fname);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to export file...");
+                    }
                 }
             }
+
+            
         }
 
         private void MiJSON_Click(object sender, EventArgs e)
         {
-            UnitController unitController = this.unitController;
-            DataSerializer ds = new DataSerializer();
-            SaveFileDialog dlgSave = new SaveFileDialog();
-            dlgSave.InitialDirectory = "c:\\temp";
-            dlgSave.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
-            dlgSave.FilterIndex = 1;
-            dlgSave.RestoreDirectory = true;
-            String fname;
-            if (dlgSave.ShowDialog() == DialogResult.OK)
+            if (!CKBX1.Checked && !CKBX2.Checked && !CKBX3.Checked)
             {
-                fname = dlgSave.FileName;
-
-                if (unitController.GetUnitsAsString() != null) 
-                {
-                    ds.JsonSerialize(unitController.getUnits(), fname);
-                    MessageBox.Show("Successfully exported file: {}", fname);
-                }
-                else
-                {
-                    MessageBox.Show("Failed to export file...");
-                }
-
+                MessageBox.Show("Please Enter an Option in Settings");
             }
+            else
+            {
+                UnitController unitController = this.unitController;
+                DataSerializer ds = new DataSerializer();
+                SaveFileDialog dlgSave = new SaveFileDialog();
+
+                dlgSave.InitialDirectory = "c:\\temp";
+                dlgSave.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
+                dlgSave.FilterIndex = 1;
+                dlgSave.RestoreDirectory = true;
+                String fname;
+
+                if (dlgSave.ShowDialog() == DialogResult.OK)
+                {
+                    fname = dlgSave.FileName;
+
+                    // Checks if obj created
+                    if (unitController.GetUnit() != null)
+                    {
+                        ds.JsonSerialize(unitController.GetUnit(), fname);
+                        MessageBox.Show("Successfully exported file: " + fname);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to export file...");
+                    }
+
+                }
+            }
+            
+            
         }
 
         private void BTN1_Click(object sender, EventArgs e)
@@ -145,14 +188,25 @@ namespace WinFormsApp1
             }
             if (CKBX3.Checked)
             {
-                users = unitController.getUsernames();
+                users = unitController.GetUsernames();
             }
             
-            unitController.addUnit(osInfo,hostName,ipAddresses,users);
+            if (!CKBX1.Checked && !CKBX2.Checked && !CKBX3.Checked)
+            {
+                MessageBox.Show("Please Enter an Option in Settings");
+            }
+            else
+            {
+                // Creates Obj
+                unitController.CreateUnit(osInfo, hostName, ipAddresses, users);
 
-            string start = "STARTING PROGRAM\n\n";
-            string end = "\n\nPROGRAM FINISHED";
-            RTXTBX1.Text = start + unitController.GetUnitsAsString() + end;
+                // Text box dialog
+                string start = "STARTING PROGRAM\n\n";
+                string end = "\n\nPROGRAM FINISHED";
+                RTXTBX1.Text = start + unitController.GetUnit() + end;
+
+            }
+            
             
         }
       

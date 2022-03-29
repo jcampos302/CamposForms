@@ -11,63 +11,57 @@ namespace WinFormsApp1
 {
     public class UnitController
     {
-        private List<Unit> units;
+        // Object value for unit
+        private Unit unit;
+
+        // Contructors 
         public UnitController()
         {
-            units = null;
+            unit = null;
         }
-        public UnitController(List<Unit> units)
+        public UnitController(Unit unit)
         {
-            this.units = units;
+            this.unit = unit;
         }
         
-        public void addUnit(string osInfo, string hostName, List<string> ipaddresses, List<string> users)
-        {
-            units = new List<Unit>();    
-            Unit unit = new Unit(osInfo, hostName, ipaddresses, users);
-            units.Add(unit);
+        // Creates object
+        public void CreateUnit(string osInfo, string hostName, List<string> ipaddresses, List<string> users)
+        {    
+            unit = new Unit(osInfo, hostName, ipaddresses, users);   
         }
-        public string GetUnitsAsString()
+        
+        // Returns Unit Obj
+        public Unit GetUnit()
         {
-            string result = "";
-            foreach (Unit unit in units)
-            {
-                result = result + unit + "\n";
-            }
-            return result;
-        }
-        public Unit getUnits()
-        {
-            Unit result = null;
-            foreach (Unit unit in units)
-            {
-                if (unit != null)
-                {
-                    result = unit;
-                }
-            }
-            return result;
+            return unit;
         }
 
-        public List<string> getUsernames()
+        // Gets Windows Usernames and Domain
+        public List<string> GetUsernames()
         {
+            // Lists of Users
             List<string> users = new List<string>();
             string user = "";
 
+            // Queues for Windows32 Accounts
+            // Needs System.Managment
             SelectQuery query = new SelectQuery("Win32_UserAccount");
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(query);
 
-            foreach (ManagementObject envVar in searcher.Get())
+            // Parse through list of Users
+            foreach (ManagementObject result in searcher.Get())
             {
-                user = String.Format("{0}\\{1}", envVar["Domain"], envVar["Name"]);
+                user = String.Format("{0}\\{1}", result["Domain"], result["Name"]);
                 users.Add(user);
             }
+           
             return users;
-            //return domain;
         }
 
+        // Get OS Info
         public string getOsInfo()
         {
+            // Gets OS version
             var osInfo = Environment.OSVersion;
             string os = String.Format("Platform: {0:G},\n" +
                 "Version: {1}, \nMajor: {2}, Mirnor: {3},\n" +
@@ -77,11 +71,14 @@ namespace WinFormsApp1
             return os;
         }
 
+        // Hostname
         public string getHostname()
         {
             return Dns.GetHostName();
         }
 
+        // Uses hostname to get IP addresses on Unit
+        // Would like to update to include MAC address and other device infomation.
         public List<string> getIpAddresses(string hostName)
         {
 
@@ -102,13 +99,6 @@ namespace WinFormsApp1
 
             
         }
-
-        
-        
-        
-
-       
-
 
     }
 }
