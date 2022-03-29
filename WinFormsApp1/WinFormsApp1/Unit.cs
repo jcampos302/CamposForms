@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace WinFormsApp1
 {
-    internal class Unit
+    [Serializable]
+    [XmlInclude(typeof(Unit))]
+    public class Unit
     {
         // Private Values
         private string osName;

@@ -3,18 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Security.Principal;
 using System.Management;
-using System.Net.NetworkInformation;
 using System.Net;
+
 
 namespace WinFormsApp1
 {
     public class UnitController
     {
+        private List<Unit> units;
         public UnitController()
         {
-
+            units = null;
+        }
+        public UnitController(List<Unit> units)
+        {
+            this.units = units;
+        }
+        
+        public void addUnit(string osInfo, string hostName, List<string> ipaddresses, List<string> users)
+        {
+            units = new List<Unit>();    
+            Unit unit = new Unit(osInfo, hostName, ipaddresses, users);
+            units.Add(unit);
+        }
+        public string GetUnitsAsString()
+        {
+            string result = "";
+            foreach (Unit unit in units)
+            {
+                result = result + unit + "\n";
+            }
+            return result;
+        }
+        public Unit getUnits()
+        {
+            Unit result = null;
+            foreach (Unit unit in units)
+            {
+                if (unit != null)
+                {
+                    result = unit;
+                }
+            }
+            return result;
         }
 
         public List<string> getUsernames()
@@ -39,7 +71,7 @@ namespace WinFormsApp1
             var osInfo = Environment.OSVersion;
             string os = String.Format("Platform: {0:G},\n" +
                 "Version: {1}, \nMajor: {2}, Mirnor: {3},\n" +
-                "Service Pack: {4}\n", osInfo.Platform, osInfo.VersionString, osInfo.Version.Major,
+                "Service Pack: {4}", osInfo.Platform, osInfo.VersionString, osInfo.Version.Major,
                 osInfo.Version.Minor, osInfo.ServicePack);
 
             return os;
@@ -67,14 +99,13 @@ namespace WinFormsApp1
                 
             }
             return ipaddresses;
+
+            
         }
 
-       
-        public string addUnit(string osInfo, string hostName, List<string> ipaddresses, List<string> users)
-        {
-            Unit unit = new Unit(osInfo,hostName,ipaddresses,users);
-            return unit.ToString();
-        }
+        
+        
+        
 
        
 

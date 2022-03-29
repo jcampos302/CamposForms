@@ -17,8 +17,8 @@ namespace WinFormsApp1
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
-            UnitController unitController = new UnitController();
+            List<Unit> unit = new List<Unit>();
+            UnitController unitController = new UnitController(unit);
             Application.Run(new FORM(unitController));
         }
     }
