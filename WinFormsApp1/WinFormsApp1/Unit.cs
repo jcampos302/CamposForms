@@ -78,7 +78,7 @@ namespace WinFormsApp1
                 {
                     if (Users != null)
                     {
-                        return String.Format("{0}\n{1}\n{2}\n{3}",OsName,Hostname,printList(IpAddresses), printList(Users));
+                        return String.Format("{0}\n{1}\n{2}\n{3}",OsName,Hostname,printList(IpAddresses), printList(Users);
                     }
                     else
                     {

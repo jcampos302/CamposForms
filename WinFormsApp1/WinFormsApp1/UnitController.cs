@@ -51,7 +51,7 @@ namespace WinFormsApp1
             // Parse through list of Users
             foreach (ManagementObject result in searcher.Get())
             {
-                user = String.Format("{0}\\{1}", result["Domain"], result["Name"]);
+                user = String.Format("{0}\\{1}\\{}", result["Domain"], result["Name"], result["SID"]);
                 users.Add(user);
             }
            
